@@ -1,0 +1,48 @@
+﻿<Window x:Class="FolderChecker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ordnerprüfer" Height="600" Width="600" WindowStartupLocation="CenterScreen" Background="#F5F5DC">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Firmenlogo -->
+        <Image Source="https://topfact.de/files/topfact/logo/logo-neu.png" Width="200" Height="50" HorizontalAlignment="Left" Grid.Row="0"/>
+
+        <!-- Titel -->
+        <TextBlock FontSize="18" FontWeight="Bold" Foreground="#333333" HorizontalAlignment="Center" Grid.Row="1">
+            Ordnerprüfung (Bitte geben Sie Ihren Pfad ein)
+        </TextBlock>
+
+        <!-- Eingabefeld für Pfad -->
+        <TextBox x:Name="PathTextBox" HorizontalAlignment="Stretch" Height="30" Margin="0,10" FontSize="14" Background="White" BorderBrush="#FFD700" BorderThickness="1" Grid.Row="2" />
+
+        <!-- Eingabefelder für Min/Max -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10">
+            <TextBlock VerticalAlignment="Center" FontSize="14" Foreground="#333333" Margin="0,0,10,0"><Run Text="Min "/><Run Language="de-de" Text="tf_doc"/><Run Text="ID:"/></TextBlock>
+            <TextBox x:Name="MinFolderTextBox" Width="120" Height="30" Margin="0,0,10,0" FontSize="14" Background="White" BorderBrush="#FFD700" BorderThickness="1" />
+
+            <TextBlock VerticalAlignment="Center" FontSize="14" Foreground="#333333" Margin="0,0,10,0"><Run Text="Max "/><Run Language="de-de" Text="tf_doc"/><Run Text="ID:"/></TextBlock>
+            <TextBox x:Name="MaxFolderTextBox" Width="120" Height="30" Margin="0,0,10,0" FontSize="14" Background="White" BorderBrush="#FFD700" BorderThickness="1" />
+        </StackPanel>
+
+        <!-- Prüfen Button -->
+        <Button Content="Prüfen" HorizontalAlignment="Center" VerticalAlignment="Top" 
+                Background="#BF4D4D" Foreground="White" BorderBrush="#BF4D4D" BorderThickness="1"
+                FontSize="14" FontWeight="Bold" Click="CheckButton_Click" Grid.Row="4" Margin="0,10" Width="165" />
+
+        <!-- Ergebnisbereich (flexibel) -->
+        <ListBox x:Name="ResultsListBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White" BorderBrush="#FFD700" BorderThickness="1" FontSize="14" Padding="10" Grid.Row="5" Margin="0,10"/>
+    </Grid>
+</Window>
